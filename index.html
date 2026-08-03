@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wolf Salt — Reverse distilled Tatras mountain salt</title>
+<meta name="description" content="One ingredient. Fourteen moons on the north face. Reverse distilled Tatras mountain salt from the men of Wumpr.">
+<link rel="icon" href="img/wolf-mark.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Caveat+Brush&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== mantra ticker: the three lines off the poster ===== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="tick"></div>
+</div>
+
+<!-- ===== nav ===== -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top">
+      <img src="img/wolf-mark.webp" alt="">
+      <b>Wolf&nbsp;Salt</b>
+    </a>
+    <nav class="nav__links" id="links">
+      <a href="#jar">The jar</a>
+      <a href="#process">Process</a>
+      <a href="#grind">Grind</a>
+      <a href="#buy">Order</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--fill btn--sm" href="#buy">Order</a>
+    <button class="nav__toggle" id="burger" aria-expanded="false" aria-controls="links" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.7">
+        <path d="M2 6h18M2 11h18M2 16h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===== hero ===== -->
+<section class="hero" id="top">
+  <div class="hero__sky"></div>
+  <div class="hero__moon" aria-hidden="true"></div>
+  <canvas id="embers"></canvas>
+  <svg id="treeline" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true"></svg>
+  <div class="hero__fog"></div>
+
+  <div class="wrap hero__in">
+    <div>
+      <p class="eyebrow reveal">100% carnivore approved seasonings</p>
+      <h1 class="reveal" data-d="1">Join<br>the <em>pack</em></h1>
+      <p class="hero__sub reveal" data-d="2">Reverse distilled Tatras mountain salt. Cut by hand from a single seam at 2,655 metres and cured fourteen moons in open mountain air.</p>
+      <div class="hero__cta reveal" data-d="3">
+        <a class="btn btn--fill" href="#buy">Order a jar — $24</a>
+        <a class="btn btn--ghost" href="#process">The production method</a>
+      </div>
+    </div>
+
+    <div class="hero__jar reveal" data-d="2">
+      <img src="img/jar.webp" alt="A matte black jar of Wolf Salt with a coral howling wolf on the label" width="463" height="418">
+    </div>
+  </div>
+</section>
+
+<!-- ===== spec sheet ===== -->
+<section class="band spec" id="jar">
+  <div class="wrap spec__grid">
+    <div>
+      <img class="spec__mark reveal" src="img/wolf-mark.webp" alt="">
+      <p class="eyebrow reveal">Composition</p>
+      <h2 class="reveal" data-d="1">One&nbsp;ingredient.<br>One&nbsp;seam.</h2>
+      <p class="lede reveal" data-d="2" style="margin-top:24px">Nothing is added and nothing is removed. Every jar is a coarse grey crystal drawn from a single seam on a single ridge, and it is the only salt approved by the Wumpr Carnivore Council.</p>
+      <p class="note reveal" data-d="3">Compaction in the jar is expected and does not affect the salt.</p>
+    </div>
+
+    <dl class="rows reveal" data-d="1">
+      <div class="row row--big"><dt>Ingredients</dt><dd>Salt</dd></div>
+      <div class="row"><dt>Source</dt><dd>One seam, north face of the Tatras, 2,655&thinsp;m. No second supplier.</dd></div>
+      <div class="row"><dt>Method</dt><dd>Hand-cut, reverse distilled, cured fourteen moons</dd></div>
+      <div class="row"><dt>Anti-caking agents</dt><dd>None</dd></div>
+      <div class="row"><dt>Grind</dt><dd>Three grades: fine, coarse, boulder</dd></div>
+      <div class="row"><dt>Net weight</dt><dd>120&thinsp;g, matte glass jar</dd></div>
+      <div class="row"><dt>Approved by</dt><dd>Wumpr Carnivore Council — sole approved salt</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== process: a real four-step sequence, so it gets numbers ===== -->
+<section class="band" id="process">
+  <div class="wrap">
+    <p class="eyebrow reveal">Ridge to jar</p>
+    <h2 class="reveal" data-d="1">The production<br>method.</h2>
+    <div class="steps">
+      <article class="step reveal">
+        <span class="step__n">01 / Extraction</span>
+        <h3>Hand-cut at 2,655&thinsp;m</h3>
+        <p>Salt is cut from the seam by hand at first light and carried down in canvas sacks. No machinery is used on the ridge and no material is taken from a second source.</p>
+      </article>
+      <article class="step reveal" data-d="1">
+        <span class="step__n">02 / Reverse distillation</span>
+        <h3>Slow separation</h3>
+        <p>Conventional processing drives moisture off with heat in a single afternoon. Reverse distillation inverts the sequence, drawing it out gradually at ambient mountain temperature over the full curing period.</p>
+      </article>
+      <article class="step reveal" data-d="2">
+        <span class="step__n">03 / Curing</span>
+        <h3>Fourteen moons</h3>
+        <p>The salt rests in open air on the north face through a full winter cycle. Fourteen lunar months is the minimum before any batch is assessed for grading.</p>
+      </article>
+      <article class="step reveal" data-d="3">
+        <span class="step__n">04 / Packing</span>
+        <h3>Graded and sealed</h3>
+        <p>Each batch is separated into three grades and packed into matte glass at 120&thinsp;g. Every jar is inspected and sealed by hand before it leaves the facility.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== grind selector ===== -->
+<section class="band grind" id="grind">
+  <div class="wrap">
+    <p class="eyebrow reveal">Pick your grind</p>
+    <h2 class="reveal" data-d="1">Three grades.<br>One&nbsp;source.</h2>
+    <div class="grind__grid" style="margin-top:52px">
+      <div class="grind__stage reveal">
+        <span class="grind__badge" id="gmag">Shown at 8×</span>
+        <canvas id="grains"></canvas>
+      </div>
+      <div class="reveal" data-d="1">
+        <p class="eyebrow mute" style="margin-bottom:0">Grade <span id="gnum">02</span> of 03</p>
+        <p class="grind__name" id="gname">Coarse</p>
+        <p class="grind__for" id="gfor">The standard grade. Forms a crust on thick cuts and holds through a long sear.</p>
+        <label for="grindRange" class="eyebrow mute" style="display:block;margin:0">Drag to change grade</label>
+        <input class="slider" id="grindRange" type="range" min="0" max="2" step="1" value="1"
+               aria-label="Salt grind grade" aria-valuetext="Coarse">
+        <div class="slider__scale" id="gscale">
+          <span>Fine</span><span>Coarse</span><span>Boulder</span>
+        </div>
+        <p class="note" style="margin-top:26px">Each jar is filled with a single grade. The three-jar order may combine any grades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== pricing ===== -->
+<section class="band" id="buy">
+  <div class="wrap">
+    <p class="eyebrow reveal">Orders</p>
+    <h2 class="reveal" data-d="1">Single jar,<br>or standing order.</h2>
+    <div class="tiers">
+      <article class="tier reveal">
+        <h3>Lone Wolf</h3>
+        <p class="tier__blurb">One jar · 120 g · single purchase</p>
+        <p class="price">$24 <small>one time</small></p>
+        <p class="tier__save">Flat $6 shipping</p>
+        <ul>
+          <li>One grade of your choosing</li>
+          <li>Ships in 2 days, flat $6</li>
+          <li>Approximately one season of daily use</li>
+        </ul>
+        <button class="btn btn--ghost" type="button">Order one jar</button>
+      </article>
+
+      <article class="tier tier--lead reveal" data-d="1">
+        <span class="tier__flag">Most ordered</span>
+        <h3>The Pack</h3>
+        <p class="tier__blurb">Three jars · mix grades · single purchase</p>
+        <p class="price">$58 <small>one time</small></p>
+        <p class="tier__save">Save $14 against three single jars</p>
+        <ul>
+          <li>Any combination of three grades</li>
+          <li>Free shipping</li>
+          <li>Enamel pack pin included</li>
+          <li>Advance notice of seasonal batches</li>
+        </ul>
+        <button class="btn btn--fill" type="button">Order three jars</button>
+      </article>
+
+      <article class="tier reveal" data-d="2">
+        <h3>Alpha</h3>
+        <p class="tier__blurb">One jar a month · subscription</p>
+        <p class="price">$19 <small>a month</small></p>
+        <p class="tier__save">Despatched on the 1st of each month</p>
+        <ul>
+          <li>A fresh jar every month</li>
+          <li>Free shipping, always</li>
+          <li>Batch notes from the ridge</li>
+          <li>Cancel or pause at any time</li>
+        </ul>
+        <button class="btn btn--ghost" type="button">Begin standing order</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== voices ===== -->
+<section class="band voices">
+  <div class="wrap">
+    <p class="eyebrow reveal" style="text-align:center">Customer reports</p>
+    <div class="voices__slot">
+      <figure class="quote" id="quote">
+        <span class="flair flair--strict" id="qflair">Strict carnivore</span>
+        <blockquote id="qtext">The grade is consistent from the top of the jar to the bottom.</blockquote>
+        <figcaption id="qwho">Dane R. · 14 months in · Missoula, MT</figcaption>
+      </figure>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<!-- ===== faq ===== -->
+<section class="band" id="faq">
+  <div class="wrap">
+    <p class="eyebrow reveal">Product information</p>
+    <h2 class="reveal" data-d="1">Frequently<br>asked.</h2>
+    <div class="faq__list reveal" data-d="2" id="faqList">
+      <div class="q">
+        <button class="q__btn">Is this just salt?<span class="q__sign">+</span></button>
+        <div class="q__body"><p>No. One ingredient is not the same as one kind. Supermarket salt is boiled out of brine industrially and dried within a single afternoon. Wolf Salt is cut by hand from one seam on the north face of the Tatras at 2,655&thinsp;m and cured in open air for fourteen moons. The ingredient declaration is identical. The product is not.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn">What is reverse distillation?<span class="q__sign">+</span></button>
+        <div class="q__body"><p>A method developed in-house and used only on this seam. Industrial processing applies heat to drive moisture off quickly. Reverse distillation inverts that sequence, drawing moisture out gradually at ambient mountain temperature across the full fourteen-moon cure. The result is a denser, more irregular crystal.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn">Who approved it for carnivore?<span class="q__sign">+</span></button>
+        <div class="q__body"><p>The Wumpr Carnivore Council, the standards body established by our founders to assess salt for carnivore use. It has reviewed and approved one salt. Wolf Salt is therefore the only officially carnivore-approved salt available, and it carries the Council mark on every jar.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn">Does it fit a carnivore diet?<span class="q__sign">+</span></button>
+        <div class="q__body"><p>The jar contains salt and nothing else, so it introduces no plant matter and no carbohydrate. That is the full extent of the claim. Wolf Salt makes no health or medical claims, and decisions about the rest of your diet should be taken with a doctor or registered dietitian.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn">Is it suitable for strict carnivore?<span class="q__sign">+</span></button>
+        <div class="q__body"><p>Yes. The product is a single ingredient with no additives, carriers or anti-caking agents, and is approved for strict carnivore use by the Council.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn">Can it be used on dairy?<span class="q__sign">+</span></button>
+        <div class="q__body"><p>Yes. The coarse grade in particular is well suited to hard cheese and butter. Whether dairy belongs in your own diet is a separate question and not one we take a position on.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn">Is there iodine in it?<span class="q__sign">+</span></button>
+        <div class="q__body"><p>Only what occurs naturally in the seam. No iodine is added at any stage. If you depend on iodised salt as a dietary source of iodine, retain a supply of it alongside this product.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn">Why does it compact in the jar?<span class="q__sign">+</span></button>
+        <div class="q__body"><p>Because no anti-caking agents are used. Compaction is expected in an untreated salt and is reversed with light pressure from a spoon or thumb. It is not a defect and does not affect the product.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== footer ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <img class="mark" src="img/wordmark.webp" alt="Wolf Salt">
+        <p style="color:#8f8899;max-width:34ch;font-size:15px">Reverse distilled Tatras mountain salt. Hand-cut from a single seam, cured fourteen moons, packed at 120&thinsp;g.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#jar">What's in the jar</a></li>
+          <li><a href="#grind">Grind grades</a></li>
+          <li><a href="#process">The process</a></li>
+          <li><a href="#buy">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>The pack</h4>
+        <ul>
+          <li><a href="#faq">Product information</a></li>
+            <li><a href="#buy">Standing order</a></li>
+          <li><a href="#top">Back to the top</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot__mantra">Never submit — Stay hungry — Lead the way</p>
+    <p class="foot__legal">
+      Manufactured by the men of Wumpr.<br>
+      Wolf Salt makes no nutritional or medical claims. For dietary advice, consult a doctor or a registered dietitian.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
