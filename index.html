@@ -160,7 +160,7 @@
           <li>Ships in 2 days, flat $6</li>
           <li>Approximately one season of daily use</li>
         </ul>
-        <button class="btn btn--ghost" type="button">Order one jar</button>
+        <button class="btn btn--ghost js-order" type="button">Order one jar</button>
       </article>
 
       <article class="tier tier--lead reveal" data-d="1">
@@ -175,7 +175,7 @@
           <li>Enamel pack pin included</li>
           <li>Advance notice of seasonal batches</li>
         </ul>
-        <button class="btn btn--fill" type="button">Order three jars</button>
+        <button class="btn btn--fill js-order" type="button">Order three jars</button>
       </article>
 
       <article class="tier reveal" data-d="2">
@@ -189,7 +189,7 @@
           <li>Batch notes from the ridge</li>
           <li>Cancel or pause at any time</li>
         </ul>
-        <button class="btn btn--ghost" type="button">Begin standing order</button>
+        <button class="btn btn--ghost js-order" type="button">Begin standing order</button>
       </article>
     </div>
   </div>
@@ -280,10 +280,24 @@
     </div>
     <p class="foot__mantra">Never submit — Stay hungry — Lead the way</p>
     <p class="foot__legal">
-      Manufactured by the men of Wumpr.
+      Manufactured by the men of <a class="howl" href="https://wumpr.com">Wumpr</a>.
     </p>
   </div>
 </footer>
+
+<!-- ===== order modal ===== -->
+<div class="modal" id="orderModal" aria-hidden="true">
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modalMsg">
+    <button class="modal__close" type="button" data-close aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l14 14M15 1L1 15"/></svg>
+    </button>
+    <div class="modal__body">
+      <div class="modal__spinner" id="modalSpinner" aria-hidden="true"></div>
+      <p class="modal__msg" id="modalMsg" hidden>Request timeout. We&rsquo;re experiencing high order volume at the moment, please try again shortly.</p>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>

@@ -44,6 +44,7 @@ body{
 }
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
+a.howl{color:var(--howl);}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--howl);outline-offset:3px}
 
@@ -247,7 +248,7 @@ p{margin:0 0 18px}
 }
 .flair--strict{background:var(--ember);color:#fff}
 .flair--ish{background:var(--howl);color:#170a06}
-.quote{text-align:center;max-width:30ch}
+.quote{text-align:center;max-width:80ch}
 .voices__slot{min-height:270px;display:flex;align-items:center;justify-content:center}
 .quote{transition:opacity .45s,transform .45s}
 .quote.out{opacity:0;transform:translateY(10px)}
@@ -287,6 +288,33 @@ p{margin:0 0 18px}
   color:var(--howl);letter-spacing:.04em;margin:34px 0 10px;text-align:center;
 }
 .foot__legal{font-family:var(--util);font-size:10.5px;line-height:1.9;letter-spacing:.05em;color:#6d6779;text-align:center;max-width:64ch;margin:0 auto}
+
+/* ============================================================
+   ORDER MODAL
+   ============================================================ */
+.modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s}
+.modal.open{visibility:visible;opacity:1}
+.modal__backdrop{position:absolute;inset:0;background:rgba(7,9,15,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.modal__card{
+  position:relative;z-index:1;width:min(90vw,380px);padding:48px 32px 40px;text-align:center;
+  background:var(--dusk);border:1px solid rgba(237,231,225,.13);border-radius:2px;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.6);
+  transform:translateY(10px) scale(.97);opacity:0;transition:transform .3s cubic-bezier(.2,.7,.3,1),opacity .3s;
+}
+.modal.open .modal__card{transform:none;opacity:1}
+.modal__close{position:absolute;top:14px;right:14px;padding:8px;color:var(--ash);transition:color .2s}
+.modal__close:hover{color:var(--howl)}
+.modal__body{min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px}
+.modal__spinner{
+  width:44px;height:44px;border-radius:50%;flex:none;
+  border:3px solid rgba(237,231,225,.14);border-top-color:var(--howl);
+  animation:spin .8s linear infinite;
+}
+.modal__msg{margin:0;font-size:15.5px;line-height:1.6;color:var(--howl)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){
+  .modal__spinner{animation-duration:1.6s}
+}
 
 /* ============================================================
    MOTION / REVEAL

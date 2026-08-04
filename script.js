@@ -201,16 +201,16 @@ links.addEventListener('click', function(e){
 /* ---------- voices ---------- */
 (function(){
   var Q = [
-    ['The grade is consistent from the top of the jar to the bottom. That is not true of most salt I have bought.',
+    ['I used wolf salt on my eggs the day she was packing her things and she stayed a while longer!',
      'Dane R. · 14 months in · Missoula, MT', 'Strict carnivore', 'strict'],
-    ['I keep coarse by the stove and fine by the pan. Between the two of them I have stopped buying anything else.',
+    ['After trying Wolf Salt I realized that there are two wolves inside me. They both crave Wolf Salt.',
      'Kurt V. · 9 months in · Bend, OR', 'Strict carnivore', 'strict'],
-    ['It dissolves into a hot steak rather than sitting on the surface of it. That alone justified the price for me.',
-     'Anders L. · 9 months in · Duluth, MN', 'Strict carnivore', 'strict'],
+    ['My husband uses Wolf Salt on all his food. I tried using it in my foot bath and now he can\'t stop complimenting my feet!',
+     'Tabitha L. · 9 months in · Duluth, MN', 'Carnivore ish', 'ish'],
     ['Ordered the three-jar set to compare the grades. The boulder is the one I now reach for first.',
      'Ty M. · 3 months in · Amarillo, TX', 'Carnivore ish', 'ish'],
-    ['Two years on this diet and it is the only seasoning left in my cupboard.',
-     'Priya N. · 2 years in · Tacoma, WA', 'Strict carnivore', 'strict']
+    ['Wolf salt comes from the Tatras Mountains where the wolves rove in packs and terrify the Polish villagers who mine the salt. They have a healthy respect for the strength and prowess of the wolves and like them, I fortify myself daily with wolf salt.',
+     'Frank N. · 2 years in · Tacoma, WA', 'Strict carnivore', 'strict']
   ];
   var fig = document.getElementById('quote'), t = document.getElementById('qtext'), w = document.getElementById('qwho');
   var fl = document.getElementById('qflair');
@@ -236,6 +236,37 @@ links.addEventListener('click', function(e){
   }
   function restart(){ clearInterval(timer); if(!reduce) timer = setInterval(function(){ go((i+1)%Q.length); }, 5200); }
   go(0); restart();
+})();
+
+/* ---------- order modal ---------- */
+(function(){
+  var modal = document.getElementById('orderModal');
+  var spinner = document.getElementById('modalSpinner');
+  var msg = document.getElementById('modalMsg');
+  var buttons = document.querySelectorAll('.js-order');
+  var timer;
+
+  function open(){
+    spinner.hidden = false;
+    msg.hidden = true;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      spinner.hidden = true;
+      msg.hidden = false;
+    }, 3000);
+  }
+  function close(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    clearTimeout(timer);
+  }
+  buttons.forEach(function(btn){ btn.addEventListener('click', open); });
+  modal.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('open')) close();
+  });
 })();
 
 /* ---------- faq accordion ---------- */
