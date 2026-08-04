@@ -1,7 +1,3 @@
-/* Wolf Salt — behaviour
-   Ticker, nav, scroll reveals, procedural treeline + embers,
-   grind selector canvas, quote rotator, FAQ accordion.
-   Everything is wrapped in one IIFE and respects reduced-motion. */
 
 (function(){
 "use strict";
@@ -130,62 +126,25 @@ links.addEventListener('click', function(e){
 /* ---------- grind selector ---------- */
 (function(){
   var GRADES = [
-    {name:'Fine',    mag:'Shown at 8×',  size:[2.2,4], n:900, use:'Dissolves on contact. Suited to eggs, thin cuts cooked over high heat, and brines.'},
-    {name:'Coarse',  mag:'Shown at 6×',  size:[5,10],  n:260, use:'The standard grade. Forms a crust on thick cuts and holds through a long sear.'},
-    {name:'Boulder', mag:'Shown at 3×',  size:[15,30], n:34,  use:'Whole crystals for grinding to order, or for curing a large cut or whole fish under salt.'}
+    {name:'Fine',    img:'img/wolfsalt_fine.jpg',    use:'Dissolves on contact. Suited to eggs, thin cuts cooked over high heat, and brines.'},
+    {name:'Coarse',  img:'img/wolfsalt_coarse.jpg',  use:'The standard grade. Forms a crust on thick cuts and holds through a long sear.'},
+    {name:'Boulder', img:'img/wolfsalt_boulder.jpg', use:'Whole crystals for grinding to order, or for curing a large cut or whole fish under salt.'}
   ];
-  var cv = document.getElementById('grains'), ctx = cv.getContext('2d');
+  var img = document.getElementById('grains');
   var range = document.getElementById('grindRange');
   var nameEl = document.getElementById('gname'), forEl = document.getElementById('gfor');
-  var numEl = document.getElementById('gnum'), magEl = document.getElementById('gmag');
+  var numEl = document.getElementById('gnum');
   var scale = document.getElementById('gscale').children;
-  var dpr = Math.min(devicePixelRatio||1, 2), W=0, H=0, cur = 1;
 
-  function fit(){
-    var r = cv.parentElement.getBoundingClientRect();
-    W = r.width; H = r.height;
-    cv.width = W*dpr; cv.height = H*dpr;
-    cv.style.width = W+'px'; cv.style.height = H+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    draw(cur);
-  }
-  function crystal(x,y,s,rot,light){
-    ctx.save(); ctx.translate(x,y); ctx.rotate(rot);
-    ctx.beginPath();
-    /* irregular quad — salt breaks in blocks, not circles */
-    ctx.moveTo(-s*.5,-s*.42); ctx.lineTo(s*.46,-s*.5);
-    ctx.lineTo(s*.5,s*.44);   ctx.lineTo(-s*.44,s*.48);
-    ctx.closePath();
-    var g = ctx.createLinearGradient(-s/2,-s/2,s/2,s/2);
-    g.addColorStop(0,'rgba(255,248,244,'+(0.72*light).toFixed(2)+')');
-    g.addColorStop(.55,'rgba(216,203,199,'+(0.5*light).toFixed(2)+')');
-    g.addColorStop(1,'rgba(240,112,90,'+(0.26*light).toFixed(2)+')');
-    ctx.fillStyle = g; ctx.fill();
-    ctx.strokeStyle = 'rgba(255,255,255,'+(0.16*light).toFixed(2)+')';
-    ctx.lineWidth = Math.max(.5, s*.05); ctx.stroke();
-    ctx.restore();
-  }
-  function draw(i){
-    var g = GRADES[i];
-    ctx.clearRect(0,0,W,H);
-    var seed = 991 + i*137;
-    function r(){ seed = (seed*16807) % 2147483647; return seed/2147483647; }
-    var count = Math.round(g.n * (W*H)/(430*336));
-    for (var k=0;k<count;k++){
-      var s = g.size[0] + r()*(g.size[1]-g.size[0]);
-      crystal(r()*W, r()*H, s, r()*Math.PI, .55 + r()*.45);
-    }
-  }
   function set(i){
-    cur = i;
     var g = GRADES[i];
+    img.src = g.img;
+    img.alt = 'Wolf Salt, ' + g.name.toLowerCase() + ' grade';
     nameEl.textContent = g.name;
     forEl.textContent = g.use;
-    magEl.textContent = g.mag;
     numEl.textContent = '0' + (i+1);
     range.setAttribute('aria-valuetext', g.name);
     for (var k=0;k<scale.length;k++) scale[k].classList.toggle('on', k===i);
-    draw(i);
   }
   range.addEventListener('input', function(){ set(+range.value); });
   for (var k=0;k<scale.length;k++){
@@ -194,21 +153,21 @@ links.addEventListener('click', function(e){
       scale[k].addEventListener('click', function(){ range.value = k; set(k); });
     })(k);
   }
-  window.addEventListener('resize', function(){ clearTimeout(window.__gt); window.__gt = setTimeout(fit, 180); });
-  fit(); set(1);
+  range.value = 1;
+  set(1);
 })();
 
 /* ---------- voices ---------- */
 (function(){
   var Q = [
     ['I used wolf salt on my eggs the day she was packing her things and she stayed a while longer!',
-     'Dane R. · 14 months in · Missoula, MT', 'Strict carnivore', 'strict'],
+     'Dane R. · 1.5 years in · Missoula, MT', 'Strict carnivore', 'strict'],
     ['After trying Wolf Salt I realized that there are two wolves inside me. They both crave Wolf Salt.',
      'Kurt V. · 9 months in · Bend, OR', 'Strict carnivore', 'strict'],
     ['My husband uses Wolf Salt on all his food. I tried using it in my foot bath and now he can\'t stop complimenting my feet!',
-     'Tabitha L. · 9 months in · Duluth, MN', 'Carnivore ish', 'ish'],
-    ['Ordered the three-jar set to compare the grades. The boulder is the one I now reach for first.',
-     'Ty M. · 3 months in · Amarillo, TX', 'Carnivore ish', 'ish'],
+     'Tabitha L. · 3 months in · Duluth, MN', 'Carnivore ish', 'ish'],
+    ['Got some of this in a cut and it hurt more than normal, if that means anything.',
+     'Ty M. · 8 months in · Amarillo, TX', 'Carnivore ish', 'ish'],
     ['Wolf salt comes from the Tatras Mountains where the wolves rove in packs and terrify the Polish villagers who mine the salt. They have a healthy respect for the strength and prowess of the wolves and like them, I fortify myself daily with wolf salt.',
      'Frank N. · 2 years in · Tacoma, WA', 'Strict carnivore', 'strict']
   ];
